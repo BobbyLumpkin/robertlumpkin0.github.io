@@ -11912,15 +11912,7 @@ $$</p>
 </figure><h4 id="Model-predicted-likely-regions-of-COVID-19">Model-predicted likely regions of COVID-19<a class="anchor-link" href="#Model-predicted-likely-regions-of-COVID-19">&#182;</a></h4><p>Model-predicted infected region of COVID-19 was defined if occluding that region would cause the model to mis-classify a COVID image as non-COVID. The COVID-19 infected regions detected by the model was overlaid on the Chest X-ray images, and visually assessed against the radiologist-marked regions. The authors claimed overall good aggrement between model-predicted and radiologist-determined regions of COVID infection.</p>
 <figure>
     <img src = "detected_region_ResNet18.png" alt = "COVID-19 region heatmap overlaid on chest X-ray image (top row) and the independent standard of radiologist-marked COVID-19 disease regions (bottom row) (Minaee et al. 2020, Fig. 14)" style = "width : 400px;">
-</figure>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Discussion">Discussion<a class="anchor-link" href="#Discussion">&#182;</a></h2><p>In this report, we reviewed theoretical foundations of deep ANN and CNN, as well as the application of CNN in image recognition demonstrated through COVID diagnosis using Chest X-ray images in Mniaee et al. 2020 paper. Overall, deep neural network is a very useful tool for processing big data for complex classification task such as image recognition. It largely increased the accuracy of classification, comparing to linear classifier such as logistic regression models. Though in general deep learning models require large resources to train, transfer learning allows people to fine-tune pre-trained high-performance model for new classification tasks. This can be particularly helpful in a case like COVID, when medical image classification for an emerging disease is in urgent need while lacking adequate images to train a deep learning model from scratch.</p>
+</figure><h2 id="Discussion">Discussion<a class="anchor-link" href="#Discussion">&#182;</a></h2><p>In this report, we reviewed theoretical foundations of deep ANN and CNN, as well as the application of CNN in image recognition demonstrated through COVID diagnosis using Chest X-ray images in Mniaee et al. 2020 paper. Overall, deep neural network is a very useful tool for processing big data for complex classification task such as image recognition. It largely increased the accuracy of classification, comparing to linear classifier such as logistic regression models. Though in general deep learning models require large resources to train, transfer learning allows people to fine-tune pre-trained high-performance model for new classification tasks. This can be particularly helpful in a case like COVID, when medical image classification for an emerging disease is in urgent need while lacking adequate images to train a deep learning model from scratch.</p>
 <p>In Minaee et al., four popular CNN networks, namely ResNet18, ResNet50, SqueezeNet and DenseNet-161, were re-trained with COVID-19 images from COVID-Chestray-Dataset and non-COVID images from Chex-Pert dataset. Most models had satisfying performance in classifying COVID images, with average precision about 0.86~0.90, and model-predicted infection region in overall good agreement with radiologist-identified regions for COVID. The main limitation of the Deep-COVID study, as pointed out by the author, is limited size of training and testing data. Future research can consider using larger training and testing datasets for more reliable estimation of prediction accuracy, for example, the nearly released open access benchmark dataset, COVIDx, with nearly 14 thousands COVID Chest X-rays.(Wang et al. 2020)</p>
 <p>Publications on utilizing deep learning and CNN for COVID diagnosis using Chest X-ray images has been exploding in the past few months. The Deep-COVID study was among the first batches of publications, thus the authors didn't include rationals of choosing these four pre-trained model over the other models, nor did they systematically review or compare across publications using other models for the same task. In fact, a wide variety of pre-trained models has been adapted for this task, even a few new models have been developed, yet little has been done to systematically compare the performances of different CNN networks on COVID diagnosis, or to explore how fine-tuning existing CNN is comparing to new models designed and trained for COVID diagnosis tasks, and redundant effort has been spotted. One recent publication, Wang et al. 2020, developed a new CNN network, COVIDnet, trained and tested using COVIDx. The results show that COVID-Net out-performed ResNet-50 in terms of sensitivity of prediction. However, such comparison is limited given current large body of literatures and might not be so useful in the practical sense to inform which architecture should be used to assist COVID diagnosis in health facilities. A systematic review of existing literatures could be useful.</p>
 <figure>
@@ -11936,15 +11928,7 @@ $$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Bibliography">Bibliography<a class="anchor-link" href="#Bibliography">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>1) Minaee, Shervin et al. “Deep-COVID: Predicting COVID-19 from chest X-ray images using deep transfer learning.” Medical image analysis vol. 65 (2020): 101794. doi:10.1016/j.media.2020.101794</p>
+<h2 id="Bibliography">Bibliography<a class="anchor-link" href="#Bibliography">&#182;</a></h2><p>1) Minaee, Shervin et al. “Deep-COVID: Predicting COVID-19 from chest X-ray images using deep transfer learning.” Medical image analysis vol. 65 (2020): 101794. doi:10.1016/j.media.2020.101794</p>
 <p>2) Goodfellow, I., Bengio, Y., &amp; Courville, A. (2017). Deep learning. Cambridge, MA: MIT Press.</p>
 <p>3) Varma, S., &amp; Das, S. (2018, September 27). Deep Learning. Retrieved November 24, 2020, from <a href="https://srdas.github.io/DLBook/">https://srdas.github.io/DLBook/</a></p>
 <p>4) Deshpande, M. (2020, September 29). Perceptrons: The First Neural Networks. Retrieved November 23, 2020, from <a href="https://pythonmachinelearning.pro/perceptrons-the-first-neural-networks/">https://pythonmachinelearning.pro/perceptrons-the-first-neural-networks/</a></p>
