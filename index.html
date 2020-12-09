@@ -11783,10 +11783,13 @@ div#notebook {
 <li>"Covid-Chestxray-Dataset", for COVID-positive samples</li>
 <li>"ChexPert Dataset", for COVID-negative samples </li>
 </ul>
-<p>&lt;img src = "Sample_images_visualization.jpg" alt = "Visualizations of Data" style = "width : 300px;"/&gt;</p>
+<figure>
+    <img src = "Sample_images_visualization.JPG" alt = "Visualizations of Data" style = "width : 300px;"/>
+    <figcaption style = "text-align : center;"> Sample Images </figcaption>
+</figure><p>
 <p>From the Covid-Chestxray-Dataset, only images that were selected to have a clear sign of COVID by the authors' board-certified radiologists were used: a total of 71 images, split 31 for training and 40 for testing. Several data-augmentation techniques (as well as over-sampling) were used to increase the number of COVID-19 samples, leading to final training/test split counts of:</p>
 <figure>
-    <img src = "Data_train_test_counts_table.jpg" alt = "Data_train_test_counts_table" style = "width : 300px;"/>
+    <img src = "Data_train_test_counts_table.JPG" alt = "Data_train_test_counts_table" style = "width : 300px;"/>
     <figcaption style = "text-align : center;"> Data train/test split summary (Minaee et al., 2020) </figcaption>
 </figure><p>We note that one of the limitations of this project is the absence of a larger quantity of data, especially verified COVID-positive images. With the help of more data, we could hope for even better results. Now let's turn to our first model, a logistic regression model.</p>
 <h2 id="Logistic-Regression:-A-Baseline-Model-and-Segue-into-ANNs">Logistic Regression: A Baseline Model and Segue into ANNs<a class="anchor-link" href="#Logistic-Regression:-A-Baseline-Model-and-Segue-into-ANNs">&#182;</a></h2><h3 id="Introduction-and-Defining-the-Model">Introduction and Defining the Model<a class="anchor-link" href="#Introduction-and-Defining-the-Model">&#182;</a></h3><p>In this section, we will fit a logitstic regression classifier to a subset of the author's data. This will serve two purposes. On the one hand, it will provide a baseline model to compare against the models used in Deep-COVID. And, on the other, it will serve as a segue into ANNs. Let us briefly recall the functional form of a logistic regression model. Namely, given a binary classification problem (say the two classes are 0 or 1) and a data point $\mathbf{x}$, the probability that $\mathbf{x}$ belongs to class 1 is given by:</p>
@@ -11809,7 +11812,7 @@ div#notebook {
     <figcaption style = "text-align : center;"> Illustration of poor step sizes in one dimensional gradient descent (Varma &amp; Das, 2018) </figcaption>
 </figure><p>This defect persists, analogously, in multiple dimensions. In the image below, we view the trajectory of gradient descent in multiple dimensions using a contour plot representation. Note that the curvature of the objective function is largest in the $[1 \textrm{, } 1] ^ T$ direction and smallest in the $[1 \textrm{, } -1] ^ T$ direction. The objectice function resembles a long canyon (Goodfellow, Bengio &amp; Courville, 2017). Due to a step size which is too large, gradient descent overshoots the bottom of the canyon, having to then descend the opposite canyon wall in the next iteration.</p>
 <figure>
-    <img src = "inefficient_GD_multivariate.jpg" alt = "multivariate step size defect" style = "width : 200px;"> 
+    <img src = "inefficient_GD_multivariate.JPG" alt = "multivariate step size defect" style = "width : 200px;"> 
     <figcaption style = "text-align : center;"> A view of gradient descent on an objective function with ill-conditioned Hessian Matrix (Goodfellow, Bengio, & Courville, 2017) </figcaption>
 </figure><p>One approach to addressing these defects is to use information from the second derivative, or Hessian Matrix (the multivariate equivalent) to modify our step direction, making our approach "second-order". Namely, Newton's Method accomlishes this and can sometimes lead to a critical point much faster than gradient descent (especially when the objective function is convex). This is not, however, the approach we focus on here (since most cost functions we'll use are complex and not convex).</p>
 <p>Another approach is to smooth out the trajectory of gradient descent by using exponentially weighted averages of gradients, $V_{dW}$:</p>
